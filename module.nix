@@ -74,6 +74,16 @@ localFlake:
       treefmt.programs = {
         rustfmt.enable = true;
         nixfmt.enable = true;
+        mdformat = {
+          enable = true;
+          package = pkgs.mdformat.withPlugins (
+            p: with p; [
+              mdformat-frontmatter
+              mdformat-tables
+            ]
+          );
+          settings.wrap = 80;
+        };
       };
     };
 }

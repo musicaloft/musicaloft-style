@@ -1,5 +1,5 @@
 {
-  description = "Musicaloft common code style";
+  description = "The standardized Musicaloft code style";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

@@ -7,7 +7,7 @@ localFlake:
     { ... }:
     {
       devenv.shells.default = {
-        imports = [ ./devenv ];
+        imports = [ ../devenv/style ];
       };
     };
 }

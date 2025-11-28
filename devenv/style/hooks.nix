@@ -37,13 +37,16 @@ let
   };
 in
 {
-  git-hooks.hooks.commitlint-rs = {
-    enable = true;
-    name = "commitlint-rs";
-    package = pkgs.commitlint-rs;
-    description = "Validate commit messages with commitlint-rs";
-    entry = "${pkgs.lib.getExe pkgs.commitlint-rs} -g ${commitlintConfig} -e";
-    pass_filenames = true;
-    stages = [ "commit-msg" ];
+  git-hooks.hooks = {
+    treefmt.enable = true;
+    commitlint-rs = {
+      enable = true;
+      name = "commitlint-rs";
+      package = pkgs.commitlint-rs;
+      description = "Validate commit messages with commitlint-rs";
+      entry = "${pkgs.lib.getExe pkgs.commitlint-rs} -g ${commitlintConfig} -e";
+      pass_filenames = true;
+      stages = [ "commit-msg" ];
+    };
   };
 }

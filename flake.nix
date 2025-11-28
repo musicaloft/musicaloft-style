@@ -25,7 +25,7 @@
     };
 
     devenv-root = {
-      url = ./.devenv/root;
+      url = "file+file:///dev/null";
       flake = false;
     };
   };
@@ -36,7 +36,7 @@
       { flake-parts-lib, ... }:
       let
         inherit (flake-parts-lib) importApply;
-        flakeModule = importApply ./module.nix { inherit inputs; };
+        styleModule = importApply ./nix/style.nix { inherit inputs; };
       in
       {
         imports = [
@@ -44,8 +44,8 @@
           inputs.git-hooks-nix.flakeModule
           inputs.treefmt-nix.flakeModule
 
-          # dogfood: use our own devenv modules
-          flakeModule
+          # dogfood: use our own style module
+          styleModule
         ];
 
         systems = [
@@ -56,13 +56,15 @@
         ];
 
         flake = {
-          inherit flakeModule;
+          flakeModule = ./nix/style.nix;
+          flakeModules.style = ./nix/style.nix;
 
           # export devenv modules for other projects to use
           devenvModule = ./devenv;
           devenvModules = {
-            commitlint = ./devenv/commitlint.nix;
-            treefmt = ./devenv/treefmt.nix;
+            style = ./devenv/style;
+            hooks = ./devenv/style/hooks.nix;
+            fmt = ./devenv/style/treefmt.nix;
           };
         };
       }

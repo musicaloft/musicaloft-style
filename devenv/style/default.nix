@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./commitlint.nix
+    ./hooks.nix
     ./treefmt.nix
   ];
 

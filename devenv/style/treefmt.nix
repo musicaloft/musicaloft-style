@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  git-hooks.hooks.treefmt.enable = true;
-
   treefmt = {
     enable = true;
     config.programs = {

@@ -59,8 +59,8 @@
           inherit flakeModule;
 
           # export devenv modules for other projects to use
+          devenvModule = ./devenv;
           devenvModules = {
-            default = ./devenv;
             commitlint = ./devenv/commitlint.nix;
             treefmt = ./devenv/treefmt.nix;
           };

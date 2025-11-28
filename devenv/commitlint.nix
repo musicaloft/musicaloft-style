@@ -43,7 +43,7 @@ in
     package = pkgs.commitlint-rs;
     description = "Validate commit messages with commitlint-rs";
     entry = "${pkgs.lib.getExe pkgs.commitlint-rs} -g ${commitlintConfig} -e";
-    pass_filenames = false;
+    pass_filenames = true;
     stages = [ "commit-msg" ];
   };
 }

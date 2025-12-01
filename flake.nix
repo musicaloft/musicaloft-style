@@ -56,8 +56,8 @@
         ];
 
         flake = {
-          flakeModule = ./nix/style.nix;
-          flakeModules.style = ./nix/style.nix;
+          flakeModule = styleModule;
+          flakeModules.style = styleModule;
 
           # export devenv modules for other projects to use
           devenvModule = ./devenv;

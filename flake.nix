@@ -36,14 +36,10 @@
       { flake-parts-lib, ... }:
       let
         inherit (flake-parts-lib) importApply;
-        styleModule = importApply ./nix/style.nix { inherit inputs; };
+        styleModule = importApply ./nix/style.nix { inherit inputs flake-parts-lib; };
       in
       {
         imports = [
-          inputs.devenv.flakeModule
-          inputs.git-hooks-nix.flakeModule
-          inputs.treefmt-nix.flakeModule
-
           # dogfood: use our own style module
           styleModule
         ];

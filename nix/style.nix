@@ -10,9 +10,12 @@
   _module.args = { inherit flake-parts-lib; };
 
   perSystem =
-    { ... }:
+    { config, ... }:
     {
       # then add musicaloft style to the default shell
       devenv.shells.default.imports = [ ../devenv/style ];
+
+      # and use treefmt as the formatter
+      formatter = config.devenv.shells.default.treefmt.config.build.wrapper;
     };
 }

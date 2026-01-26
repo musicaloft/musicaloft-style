@@ -38,6 +38,8 @@
         );
         settings.wrap = 80;
       };
+
+      kdlfmt.enable = true;
       nixfmt.enable = true;
       rustfmt.enable = true;
       taplo.enable = true;

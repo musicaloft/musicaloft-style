@@ -29,7 +29,7 @@
         };
       };
       mdformat = {
-        enable = true;
+        # enable = true;
         package = pkgs.mdformat.withPlugins (
           p: with p; [
             mdformat-frontmatter

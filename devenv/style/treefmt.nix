@@ -10,12 +10,10 @@
           indentWidth = 2;
           useTabs = false;
 
-          plugins = (
-            pkgs.dprint-plugins.getPluginList (
-              plugins: with plugins; [
-                g-plane-malva
-              ]
-            )
+          plugins = pkgs.dprint-plugins.getPluginList (
+            plugins: with plugins; [
+              g-plane-malva
+            ]
           );
 
           malva = {
@@ -29,11 +27,16 @@
         };
       };
       mdformat = {
-        # enable = true;
+        enable = true;
         package = pkgs.mdformat.withPlugins (
           p: with p; [
+            mdformat-admon
+            mdformat-footnote
             mdformat-frontmatter
+            mdformat-myst
+            mdformat-simple-breaks
             mdformat-tables
+            mdformat-wikilink
           ]
         );
         settings.wrap = 80;

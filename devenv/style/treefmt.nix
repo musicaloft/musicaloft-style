@@ -33,8 +33,8 @@
             mdformat-admon
             mdformat-footnote
             mdformat-frontmatter
+            mdformat-gfm
             mdformat-simple-breaks
-            mdformat-tables
             mdformat-wikilink
           ];
         settings = {

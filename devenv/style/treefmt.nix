@@ -28,7 +28,7 @@
       };
       mdformat = {
         enable = true;
-        package = pkgs.mdformat.withPlugins (
+        plugins =
           p: with p; [
             mdformat-admon
             mdformat-footnote
@@ -36,9 +36,11 @@
             mdformat-simple-breaks
             mdformat-tables
             mdformat-wikilink
-          ]
-        );
-        settings.wrap = 80;
+          ];
+        settings = {
+          wrap = 100;
+          number = true;
+        };
       };
 
       kdlfmt.enable = true;

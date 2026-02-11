@@ -60,7 +60,7 @@
           flakeModules.style = styleModule;
 
           # export devenv modules for other projects to use
-          devenvModule = ./devenv;
+          devenvModule = ./devenv/style;
           devenvModules = {
             style = ./devenv/style;
             hooks = ./devenv/style/hooks.nix;

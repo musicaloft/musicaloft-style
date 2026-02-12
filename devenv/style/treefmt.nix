@@ -38,7 +38,8 @@
             mdformat-wikilink
           ];
         settings = {
-          wrap = 100;
+          # don't set to 100. i know you want to. it's too much.
+          wrap = 80;
           number = true;
         };
       };

@@ -30,10 +30,9 @@
         enable = true;
         plugins =
           p: with p; [
-            mdformat-admon
-            mdformat-footnote
-            mdformat-frontmatter
             mdformat-gfm
+            mdformat-myst
+
             mdformat-simple-breaks
             mdformat-wikilink
           ];

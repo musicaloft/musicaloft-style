@@ -38,6 +38,25 @@ let
 in
 {
   git-hooks.hooks = {
+    # set clippy settings for rust projects, but don't enable it by default in case projects don't use rust
+    clippy.settings = {
+      allFeatures = true;
+      denyWarnings = true;
+    };
+
+    # for typescript projects
+    oxlint = {
+      name = "oxlint";
+      description = "Uses oxlint to catch any linting errors or warnings before committing";
+      entry = "oxlint --type-aware --type-check --deny-warnings";
+      types_or = [
+        "javascript"
+        "ts"
+        "json"
+      ];
+    };
+
+    # hooks that can apply to all projects
     treefmt.enable = true;
     commitlint-rs = {
       enable = true;

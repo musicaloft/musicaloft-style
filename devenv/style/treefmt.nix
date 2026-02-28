@@ -26,25 +26,10 @@
           };
         };
       };
-      mdformat = {
-        enable = true;
-        plugins =
-          p: with p; [
-            mdformat-gfm
-            mdformat-myst
-
-            mdformat-simple-breaks
-            mdformat-wikilink
-          ];
-        settings = {
-          # don't set to 100. i know you want to. it's too much.
-          wrap = 80;
-          number = true;
-        };
-      };
 
       kdlfmt.enable = true;
       nixfmt.enable = true;
+      oxfmt.enable = true;
       rustfmt.enable = true;
       taplo.enable = true;
     };

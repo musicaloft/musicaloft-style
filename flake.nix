@@ -2,7 +2,7 @@
   description = "The standardized Musicaloft code style";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   commitlintConfig = pkgs.writers.writeYAML "commitlintrc.yml" {
     rules = {
@@ -38,14 +43,17 @@ let
 in
 {
   git-hooks.hooks = {
-    # set clippy settings for rust projects, but don't enable it by default in case projects don't use rust
-    clippy.settings = {
-      allFeatures = true;
-      denyWarnings = true;
+    # clippy for rust projects
+    clippy = lib.mkIf config.languages.rust.enable {
+      enable = true;
+      settings = {
+        allFeatures = true;
+        denyWarnings = true;
+      };
     };
 
     # for typescript projects
-    oxlint = {
+    oxlint = lib.mkIf config.languages.typescript.enable {
       name = "oxlint";
       description = "Uses oxlint to catch any linting errors or warnings before committing";
       entry = "oxlint --type-aware --type-check --deny-warnings";

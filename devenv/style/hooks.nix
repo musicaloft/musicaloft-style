@@ -64,6 +64,14 @@ in
       ];
     };
 
+    # for python projects
+    ruff.enable = config.languages.python.enable;
+    ruff-format.enable = config.languages.python.enable;
+    ty = lib.mkIf config.languages.python.enable {
+      enable = true;
+      entry = "ty check";
+    };
+
     # hooks that can apply to all projects
     treefmt.enable = true;
     commitlint-rs = {

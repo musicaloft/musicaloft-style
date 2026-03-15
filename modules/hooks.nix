@@ -70,7 +70,9 @@ in
     ty = lib.mkIf config.languages.python.enable {
       enable = true;
       entry = "ty check";
+      name = "python type checking with `ty`";
       language = "python";
+      types = [ "python" ];
     };
 
     # hooks that can apply to all projects

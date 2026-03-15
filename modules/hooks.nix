@@ -71,6 +71,7 @@ in
       enable = true;
       entry = "ty check";
       name = "python type checking with `ty`";
+      pass_filenames = true;
       language = "python";
       types = [ "python" ];
     };

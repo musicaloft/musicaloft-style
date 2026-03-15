@@ -32,9 +32,8 @@
     ruff-format.enable = config.languages.python.enable;
     ty = lib.mkIf config.languages.python.enable {
       enable = true;
+      name = "ty";
       entry = "ty check";
-      name = "python type checking with `ty`";
-      pass_filenames = true;
       types = [ "python" ];
     };
 

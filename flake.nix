@@ -5,6 +5,10 @@
     { self }:
     {
       templates = {
+        basic = {
+          path = ./templates/basic;
+          description = "A simple devenv and flake with musicaloft-shell";
+        };
         python = {
           path = ./templates/python;
           description = "A Python template with devenv, uv, ruff, ty, and git hooks";

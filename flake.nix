@@ -19,6 +19,6 @@
         };
       };
 
-      defaultTemplate = self.templates.rust;
+      defaultTemplate = self.templates.basic;
     };
 }

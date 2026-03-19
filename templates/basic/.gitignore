@@ -11,3 +11,6 @@ devenv.local.yaml
 .oxfmtrc.json
 .pre-commit-config.yaml
 .commitlintrc.yaml
+
+# build result
+result

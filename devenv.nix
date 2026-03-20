@@ -1,4 +1,13 @@
-{ pkgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cocoa = inputs.cocoa.packages.${pkgs.stdenv.system}.default;
+in
 {
   imports = [ ./modules ];
 
@@ -8,16 +17,18 @@
   # hooks that apply to all projects
   git-hooks.hooks = {
     treefmt.enable = true;
-    commitlint-rs = {
+    cocoa-lint = {
       enable = true;
-      name = "commitlint-rs";
-      package = pkgs.commitlint-rs;
-      description = "Validate commit messages with commitlint-rs";
-      entry = "${pkgs.lib.getExe pkgs.commitlint-rs} -e";
+      name = "cocoa-lint";
+      package = cocoa;
+      description = "Validates commit messages with cocoa";
+      entry = "${lib.getExe config.git-hooks.hooks.cocoa-lint.package} lint";
       pass_filenames = true;
       stages = [ "commit-msg" ];
     };
   };
+
+  packages = [ cocoa ];
 
   # treefmt for all projects
   treefmt = {

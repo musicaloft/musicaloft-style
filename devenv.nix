@@ -1,12 +1,18 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
 }:
 let
-  cocoa = inputs.cocoa.packages.${pkgs.stdenv.system}.default;
+  cocoa = config.lib.getInput {
+    name = "cocoa";
+    url = "github:muni-corn/cocoa";
+    attribute = "git-hooks.hooks.cocoa-lint.enable";
+    follows = [ "nixpkgs" ];
+  };
+
+  cocoaPkg = cocoa.packages.${pkgs.stdenv.system}.default;
 in
 {
   imports = [ ./modules ];
@@ -20,7 +26,7 @@ in
     cocoa-lint = {
       enable = true;
       name = "cocoa-lint";
-      package = lib.mkDefault cocoa;
+      package = lib.mkDefault cocoaPkg;
       description = "Validates commit messages with cocoa";
       entry = "${lib.getExe config.git-hooks.hooks.cocoa-lint.package} lint";
       pass_filenames = true;
@@ -28,7 +34,7 @@ in
     };
   };
 
-  packages = [ cocoa ];
+  packages = [ cocoaPkg ];
 
   # treefmt for all projects
   treefmt = {

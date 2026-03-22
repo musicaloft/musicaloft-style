@@ -18,9 +18,9 @@ in
   git-hooks.hooks = {
     treefmt.enable = true;
     cocoa-lint = {
-      enable = cocoa != null;
+      enable = lib.mkDefault (cocoa != null);
       name = "cocoa-lint";
-      package = cocoa;
+      package = lib.mkDefault cocoa;
       description = "Validates commit messages with cocoa";
       entry = "${lib.getExe config.git-hooks.hooks.cocoa-lint.package} lint";
       pass_filenames = true;

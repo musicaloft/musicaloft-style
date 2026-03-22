@@ -31,7 +31,7 @@ Pre-commit hooks powered by git-hooks-nix:
 #### Universal hooks
 
 - **treefmt** - Automatically formats staged files before commit
-- **commitlint-rs** - Validates commit messages using conventional commit format
+- **cocoa-lint** - Validates commit messages using conventional commit format
 
 #### Rust projects
 

@@ -1,19 +1,14 @@
+{ inputs, lib, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-{
-  imports = [ ./modules ];
+  imports = [ ./modules ] ++ lib.optional (inputs ? cocoa) "${inputs.cocoa}/devenv/devenv.nix";
 
   # always enable nix for downstream shells
   languages.nix.enable = true;
 
   # hooks that apply to all projects
   git-hooks.hooks = {
-    cocoa-generate.enable = true;
-    cocoa-lint.enable = true;
+    cocoa-generate.enable = inputs ? cocoa;
+    cocoa-lint.enable = inputs ? cocoa;
     treefmt.enable = true;
   };
 

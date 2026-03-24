@@ -170,11 +170,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1774302974,
-        "narHash": "sha256-jNWs8iFqBtvr3fDAeH4N8Yyk/drGMC1wAsp9UrGEcRs=",
+        "lastModified": 1774325176,
+        "narHash": "sha256-wZAS/5GuuEhaYNQHNqF2mMpD6vOQSx6ecwJZ/ODibvk=",
         "owner": "muni-corn",
         "repo": "cocoa",
-        "rev": "cbd8c1e7fb4459c37c1fce77a75fb307054b2815",
+        "rev": "8010f79ff2610b8c4592cb881bceb2eca31c26b4",
         "type": "github"
       },
       "original": {

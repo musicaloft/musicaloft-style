@@ -25,6 +25,7 @@ lib.mkIf config.languages.rust.enable {
     bacon
     cargo-outdated
     cargo-machete
+    cargo-mutants
     cargo-nextest
   ];
 

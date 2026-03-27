@@ -24,6 +24,9 @@
 
       # for formatting Markdown files
       oxfmt.enable = true;
+
+      # for catching typos
+      typos.enable = true;
     };
   };
 }

@@ -5,6 +5,8 @@
   ...
 }:
 lib.mkIf config.languages.rust.enable {
+  files.".cargo/config.toml".toml.alias.cover = "llvm-cov nextest";
+
   git-hooks.hooks.clippy =
     let
       toolchain = config.languages.rust.toolchainPackage;
@@ -24,6 +26,7 @@ lib.mkIf config.languages.rust.enable {
   packages = with pkgs; [
     bacon
     cargo-outdated
+    cargo-llvm-cov
     cargo-machete
     cargo-mutants
     cargo-nextest

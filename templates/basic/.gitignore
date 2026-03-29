@@ -12,5 +12,5 @@ devenv.local.yaml
 .pre-commit-config.yaml
 .commitlintrc.yaml
 
-# build result
+# nix build result
 result

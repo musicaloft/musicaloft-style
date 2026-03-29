@@ -17,6 +17,9 @@ devenv.local.yaml
 .oxfmtrc.json
 .pre-commit-config.yaml
 
+# nix build result
+result
+
 # cargo-mutants
 mutants.out.old/
 mutants.out/

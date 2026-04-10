@@ -7,7 +7,10 @@
 let
   pname = "a-rust-app";
   buildInputs = [ ];
-  nativeBuildInputs = with pkgs; [ autoPatchelfHook ];
+  nativeBuildInputs = with pkgs; [
+    autoPatchelfHook
+    pkg-config
+  ];
   libraryPath = lib.makeLibraryPath buildInputs;
 in
 {
